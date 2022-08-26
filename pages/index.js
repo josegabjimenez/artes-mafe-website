@@ -1,18 +1,18 @@
-import Head from 'next/head'
-import Navbar from '../components/Navbar'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Navbar from '../components/Navbar';
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Artes mafe</title>
-        <meta name="description" content="Sitio oficial de Artes Mafe" />
-        <link rel="icon" href="/artesmafe.ico" />
-      </Head>
+	return (
+		<div className="min-h-screen flex flex-col items-center bg-accent w-full">
+			<Head>
+				<title>Artes mafe</title>
+				<meta name="description" content="Sitio oficial de Artes Mafe" />
+				<link rel="icon" href="/artesmafe.ico" />
+			</Head>
 
-      <Navbar/>
+			<Navbar />
 
-    </div>
-  )
+			<h1 className="my-auto text-7xl font-black">Artes Mafe</h1>
+		</div>
+	);
 }
