@@ -17,6 +17,62 @@ const pdfs = [
 		price: 0,
 		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
 	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
+	{
+		slug: 'tejido-a-crochet-2',
+		title: 'Tejido a crochet 2',
+		description: 'Un tejido muy lindo',
+		price: 0,
+		image: 'https://www.tejidocrochet.com/wp-content/uploads/2011/03/puntosprincipales.jpg',
+	},
 ];
 
 const Tejidos = () => {
@@ -29,13 +85,15 @@ const Tejidos = () => {
 			</Head>
 
 			<Navbar />
-			<SearchBar />
 
-			<section className="flex flex-wrap gap-16 w-full h-80 px-16">
-				{pdfs.map((pdf) => (
-					<Card key={pdf.title} pdf={pdf} />
-				))}
-			</section>
+			<div className="mt-24">
+				<SearchBar />
+				<section className="flex flex-wrap justify-center gap-16 w-full px-16 my-16 h-auto">
+					{pdfs.map((pdf) => (
+						<Card key={pdf.title} pdf={pdf} />
+					))}
+				</section>
+			</div>
 		</div>
 	);
 };
