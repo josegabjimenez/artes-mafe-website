@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import {initializeApp} from 'firebase/app';
 import {getFirestore} from 'firebase/firestore';
-import {collection, getDocs} from 'firebase/firestore';
+import {collection, getDocs, query, where} from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -34,4 +34,19 @@ const getPdfs = async () => {
 	return pdfs;
 };
 
-export {app, db, getPdfs};
+const getPdf = async (slug) => {
+	const q = query(collection(db, 'pdfs'), where('slug', '==', slug));
+
+	let pdf = null;
+	const querySnapshot = await getDocs(q);
+	querySnapshot.forEach((doc) => {
+		pdf = {
+			id: doc.id,
+			...doc.data(),
+		};
+	});
+
+	return pdf;
+};
+
+export {app, db, getPdfs, getPdf};

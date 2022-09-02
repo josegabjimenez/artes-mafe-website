@@ -1,7 +1,14 @@
 import React from 'react';
+import {useRouter} from 'next/router';
 
 const BackButton = ({className}) => {
-	return <button className={`btn btn-info ${className}`}>Volver</button>;
+	const router = useRouter();
+
+	return (
+		<button onClick={() => router.back()} className={`btn btn-info ${className}`}>
+			Volver
+		</button>
+	);
 };
 
 export default BackButton;

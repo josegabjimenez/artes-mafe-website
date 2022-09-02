@@ -8,7 +8,7 @@ const Card = ({pdf}) => {
 	const router = useRouter();
 
 	return (
-		<div onClick={() => router.push(`/tejidos/${slug}`)} className="flex flex-col items-center w-80 gap-6 cursor-pointer">
+		<div onClick={() => router.push(`/tejidos/${slug}`)} className="flex flex-col items-center w-full sm:w-80 gap-6 cursor-pointer">
 			<div className="w-full h-auto rounded-lg overflow-hidden hover:opacity-50">
 				<Image src={image} layout="responsive" width="100%" height="100%" />
 			</div>

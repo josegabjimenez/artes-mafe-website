@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Head from 'next/head';
 import {Navbar, SearchBar, Card} from '@components/index';
 
@@ -6,7 +6,7 @@ import {Navbar, SearchBar, Card} from '@components/index';
 import {getPdfs} from '@services/firebase';
 import {collection, getDocs} from 'firebase/firestore';
 
-const pdfs = [
+const pdfsMockup = [
 	{
 		slug: 'tejido-a-crochet',
 		title: 'Tejido a crochet',
@@ -80,15 +80,18 @@ const pdfs = [
 ];
 
 const Tejidos = () => {
+	const [pdfs, setPdfs] = useState([]);
+
 	const fetchPdfs = async () => {
-		const pdfs = await getPdfs();
-		console.log(pdfs);
-		return pdfs;
+		const data = await getPdfs();
+		setPdfs(data);
 	};
 
 	useEffect(() => {
 		fetchPdfs();
 	}, []);
+
+	console.log(pdfs);
 
 	return (
 		<div className="min-h-screen flex flex-col items-center bg-accent w-full">
@@ -104,7 +107,7 @@ const Tejidos = () => {
 				<SearchBar />
 				<section className="flex flex-wrap justify-center gap-16 w-full px-16 my-16 h-auto">
 					{pdfs.map((pdf) => (
-						<Card key={pdf.title} pdf={pdf} />
+						<Card key={pdf.slug} pdf={pdf} />
 					))}
 				</section>
 			</div>
