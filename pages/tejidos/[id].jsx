@@ -19,7 +19,7 @@ const PDF = () => {
 			<Navbar />
 			<section className=" flex justify-center items-center w-full h-screen p-0 md:px-16 mt-10 relative">
 				<BackButton className="fixed top-40 left-5 lg:left-20" />
-				<embed src="/modelo.pdf#toolbar=0" type="application/pdf" width="842px" height="90%" />
+				<embed src="https://drive.google.com/file/d/1CPztuI6F1xV69EU1-MlzReT9319Jmqo4/preview" type="application/pdf" width="842px" height="90%" />
 			</section>
 		</div>
 	);

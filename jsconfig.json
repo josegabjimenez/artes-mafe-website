@@ -8,7 +8,8 @@
 			"@pages/*": ["pages/*"],
 			"@containers/*": ["containers/*"],
 			"@styles/*": ["styles/*"],
-			"@assets/*": ["assets/*"]
+			"@assets/*": ["assets/*"],
+			"@services/*": ["services/*"]
 		}
 	},
 	"exclude": ["node_modules", "dist"]

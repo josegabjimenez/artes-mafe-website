@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Head from 'next/head';
 import {Navbar, SearchBar, Card} from '@components/index';
+
+// Firebase
+import {getPdfs} from '@services/firebase';
+import {collection, getDocs} from 'firebase/firestore';
 
 const pdfs = [
 	{
@@ -76,6 +80,16 @@ const pdfs = [
 ];
 
 const Tejidos = () => {
+	const fetchPdfs = async () => {
+		const pdfs = await getPdfs();
+		console.log(pdfs);
+		return pdfs;
+	};
+
+	useEffect(() => {
+		fetchPdfs();
+	}, []);
+
 	return (
 		<div className="min-h-screen flex flex-col items-center bg-accent w-full">
 			<Head>
