@@ -81,10 +81,12 @@ const pdfsMockup = [
 
 const Tejidos = () => {
 	const [pdfs, setPdfs] = useState([]);
+	const [allPdfs, setAllPdfs] = useState([]);
 
 	const fetchPdfs = async () => {
 		const data = await getPdfs();
 		setPdfs(data);
+		setAllPdfs(data);
 	};
 
 	useEffect(() => {
@@ -104,7 +106,7 @@ const Tejidos = () => {
 			<Navbar />
 
 			<div className="mt-24">
-				<SearchBar />
+				<SearchBar setPdfs={setPdfs} allPdfs={allPdfs} />
 				<section className="flex flex-wrap justify-center gap-16 w-full px-16 my-16 h-auto">
 					{pdfs.map((pdf) => (
 						<Card key={pdf.slug} pdf={pdf} />
