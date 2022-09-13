@@ -61,7 +61,6 @@ export const getStaticPaths = async () => {
 
 	return {
 		paths,
-		revalidate: 60,
 		fallback: 'blocking',
 	};
 };
@@ -73,7 +72,7 @@ export const getStaticProps = async ({params}) => {
 		props: {
 			data: JSON.parse(JSON.stringify(data)),
 		},
-		revalidate: 60, // This will re-generate the page if there is a new request each 60 seconds
+		revalidate: 10, // This will re-generate the page if there is a new request each 60 seconds
 	};
 };
 
