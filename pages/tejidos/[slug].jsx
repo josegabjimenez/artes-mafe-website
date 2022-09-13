@@ -24,7 +24,8 @@ const PDF = () => {
 		fetchPdf();
 	}, []);
 
-	console.log(pdf);
+	// const isMobile = navigator.userAgentData.mobile;
+	// console.log(isMobile);
 
 	return (
 		<div className="min-h-screen flex flex-col items-center bg-accent w-full">
@@ -42,7 +43,7 @@ const PDF = () => {
 				) : (
 					<>
 						<BackButton className="fixed top-40 left-5 lg:left-20" />
-						<embed src={pdf.freeUrl} type="application/pdf" width="842px" height="90%" />
+						<iframe src={pdf.freeUrl} type="application/pdf" width="842px" height="90%" />
 					</>
 				)}
 			</section>
