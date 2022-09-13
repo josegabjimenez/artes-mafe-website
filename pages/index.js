@@ -12,7 +12,7 @@ export default function Home() {
 
 			<Navbar />
 
-			<h1 className="my-auto text-7xl font-black">Artes Mafe</h1>
+			<h1 className="my-auto text-7xl font-black text-center">Artes Mafe</h1>
 		</div>
 	);
 }
