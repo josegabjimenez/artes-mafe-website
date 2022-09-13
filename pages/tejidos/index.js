@@ -79,19 +79,19 @@ const pdfsMockup = [
 	},
 ];
 
-const Tejidos = () => {
-	const [pdfs, setPdfs] = useState([]);
-	const [allPdfs, setAllPdfs] = useState([]);
+const Tejidos = ({data}) => {
+	const [pdfs, setPdfs] = useState(data);
+	const [allPdfs, setAllPdfs] = useState(data);
 
-	const fetchPdfs = async () => {
-		const data = await getPdfs();
-		setPdfs(data);
-		setAllPdfs(data);
-	};
+	// const fetchPdfs = async () => {
+	// 	const data = await getPdfs();
+	// 	setPdfs(data);
+	// 	setAllPdfs(data);
+	// };
 
-	useEffect(() => {
-		fetchPdfs();
-	}, []);
+	// useEffect(() => {
+	// 	fetchPdfs();
+	// }, []);
 
 	console.log(pdfs);
 
@@ -115,6 +115,21 @@ const Tejidos = () => {
 			</div>
 		</div>
 	);
+};
+
+export const getStaticProps = async () => {
+	try {
+		const data = await getPdfs();
+
+		return {
+			props: {
+				data,
+			},
+			revalidate: 60,
+		};
+	} catch (err) {
+		console.error(err);
+	}
 };
 
 export default Tejidos;

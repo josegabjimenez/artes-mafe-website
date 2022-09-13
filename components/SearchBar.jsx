@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 const SearchBar = ({allPdfs, setPdfs}) => {
 	const [search, setSearch] = useState('');
 	const [knitType, setKnitType] = useState('');
-	const [priceType, setPriceType] = useState('Pago');
+	const [priceType, setPriceType] = useState('');
 
 	useEffect(() => {
 		const filterData = () => {
@@ -21,7 +21,7 @@ const SearchBar = ({allPdfs, setPdfs}) => {
 		};
 
 		filterData();
-	}, [search, knitType, priceType]);
+	}, [search, knitType, priceType, allPdfs, setPdfs]);
 
 	return (
 		<div className="flex flex-col md:flex-row items-center justify-center md:p-4 gap-4">

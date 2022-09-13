@@ -5,27 +5,25 @@ import {Navbar, BackButton} from '@components/index';
 // import modelo from '../../public/modelo.pdf';
 
 // Firebase
-import {getPdf} from '@services/firebase';
+import {getPdf, getPdfs} from '@services/firebase';
 
-const PDF = () => {
+const PDF = ({data}) => {
 	const router = useRouter();
-	const {slug} = router.query;
-	const [pdf, setPdf] = useState(null);
-	const [isLoading, setIsLoading] = useState(true);
+	const [pdf, setPdf] = useState(data);
+	const [isLoading, setIsLoading] = useState(false);
 
-	const fetchPdf = async () => {
-		setIsLoading(true);
-		const data = await getPdf(slug);
-		setPdf(data);
-		setIsLoading(false);
-	};
+	// const fetchPdf = async () => {
+	// 	setIsLoading(true);
+	// 	const data = await getPdf(slug);
+	// 	setPdf(data);
+	// 	setIsLoading(false);
+	// };
 
-	useEffect(() => {
-		fetchPdf();
-	}, []);
+	// useEffect(() => {
+	// 	fetchPdf();
+	// }, []);
 
-	// const isMobile = navigator.userAgentData.mobile;
-	// console.log(isMobile);
+	console.log(pdf);
 
 	return (
 		<div className="min-h-screen flex flex-col items-center bg-accent w-full">
@@ -49,6 +47,34 @@ const PDF = () => {
 			</section>
 		</div>
 	);
+};
+
+export const getStaticPaths = async () => {
+	const pdfs = await getPdfs();
+	const paths = pdfs.map((pdf) => {
+		return {
+			params: {
+				slug: pdf.slug,
+			},
+		};
+	});
+
+	return {
+		paths,
+		revalidate: 60,
+		fallback: 'blocking',
+	};
+};
+
+export const getStaticProps = async ({params}) => {
+	const {slug} = params;
+	const data = await getPdf(slug);
+	return {
+		props: {
+			data: JSON.parse(JSON.stringify(data)),
+		},
+		revalidate: 60, // This will re-generate the page if there is a new request each 60 seconds
+	};
 };
 
 export default PDF;
