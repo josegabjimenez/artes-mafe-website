@@ -2,6 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import {useRouter} from 'next/router';
 
+// Images
+import DefaultImage from '@assets/images/obillo.jpg';
+
 const Card = ({pdf}) => {
 	const {slug, title, description, image, price} = pdf;
 	const isFree = price === 0;
@@ -10,7 +13,7 @@ const Card = ({pdf}) => {
 	return (
 		<div onClick={() => router.push(`/tejidos/${slug}`)} className="flex flex-col items-center w-full sm:w-80 gap-6 cursor-pointer">
 			<div className="w-full h-auto rounded-lg overflow-hidden hover:opacity-50">
-				<Image src={image} layout="responsive" width="100%" height="100%" />
+				<Image src={image ? image : DefaultImage} fill layout="responsive" width="100%" height="100%" />
 			</div>
 			<div className="flex justify-between items-center w-full">
 				<div>
