@@ -4,7 +4,6 @@ import {Navbar, SearchBar, Card} from '@components/index';
 
 // Firebase
 import {getPdfs} from '@services/firebase';
-import {collection, getDocs} from 'firebase/firestore';
 
 const pdfsMockup = [
 	{
@@ -83,18 +82,6 @@ const Tejidos = ({data}) => {
 	const [pdfs, setPdfs] = useState(data);
 	const [allPdfs, setAllPdfs] = useState(data);
 
-	// const fetchPdfs = async () => {
-	// 	const data = await getPdfs();
-	// 	setPdfs(data);
-	// 	setAllPdfs(data);
-	// };
-
-	// useEffect(() => {
-	// 	fetchPdfs();
-	// }, []);
-
-	console.log(pdfs);
-
 	return (
 		<div className="min-h-screen flex flex-col items-center bg-accent w-full">
 			<Head>
@@ -105,7 +92,7 @@ const Tejidos = ({data}) => {
 
 			<Navbar />
 
-			<div className="mt-24">
+			<div className="mt-24 w-10/12">
 				<SearchBar setPdfs={setPdfs} allPdfs={allPdfs} />
 				<section className="flex flex-wrap justify-center gap-16 w-full px-16 my-16 h-auto">
 					{pdfs.map((pdf) => (

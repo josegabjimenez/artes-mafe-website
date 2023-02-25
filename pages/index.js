@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
+import {Navbar, Hero} from '../components/index';
 
 export default function Home() {
 	return (
@@ -12,7 +12,7 @@ export default function Home() {
 
 			<Navbar />
 
-			<h1 className="my-auto text-7xl font-black text-center">Artes Mafe</h1>
+			<Hero />
 		</div>
 	);
 }
